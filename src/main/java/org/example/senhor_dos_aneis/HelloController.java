@@ -83,12 +83,14 @@ public class HelloController implements Initializable {
         buttonbestas.setText("Adicionar");
 
         buttonheroi.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, event -> {
-            System.out.println("Adicionado " + nomeheroi.getText() + " " + puntosVidaheroi.getText() + " " + resistênciaarmaduraheroi.getText());
+            //System.out.println("Adicionado " + nomeheroi.getText() + " " + puntosVidaheroi.getText() + " " + resistênciaarmaduraheroi.getText());
             if (comboBox.getValue().equals("Elfo")) {
                 Elfo hero = new Elfo(nomeheroi.getText(), Integer.parseInt(puntosVidaheroi.getText()), Integer.parseInt(resistênciaarmaduraheroi.getText()));
                 heroi.add(hero);
                 listViewheroi.getItems().add(hero);
                 System.out.println("Heroi: "+heroi);
+
+
 
             }
             else if (comboBox.getValue().equals("Hobbit")) {
@@ -96,6 +98,8 @@ public class HelloController implements Initializable {
                 heroi.add(hobbit);
                 listViewheroi.getItems().add(hobbit);
                 System.out.println("Heroi: "+heroi);
+
+
             }
             else if (comboBox.getValue().equals("Humano")) {
                 Homem homem = (new Homem(nomeheroi.getText(), Integer.parseInt(puntosVidaheroi.getText()), Integer.parseInt(resistênciaarmaduraheroi.getText())));
@@ -103,18 +107,20 @@ public class HelloController implements Initializable {
                 listViewheroi.getItems().add(homem);
                 System.out.println("Heroi: "+heroi);
 
+
+
         }});
 
         buttonbestas.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, event -> {
             System.out.println("Adicionado " + nomebesta.getText() + " " + puntosVidabesta.getText() + " " + resistênciaarmadurabesta.getText());
             if (comboBox1.getValue().equals("Troll")) {
-                /*Troll troll = (new Troll(nomebesta.getText(), Integer.parseInt(puntosVidabesta.getText()), Integer.parseInt(resistênciaarmadurabesta.getText())));
+                Troll troll = (new Troll(nomebesta.getText(), Integer.parseInt(puntosVidabesta.getText()), Integer.parseInt(resistênciaarmadurabesta.getText())));
                 bestas.add(troll);
                 listViewbesta.getItems().add(troll);
                 System.out.println("Bestas: "+bestas);
 
-                 */
-                insercaHeroiBesta(nomebesta.getText(), Integer.parseInt(puntosVidabesta.getText()), Integer.parseInt(resistênciaarmadurabesta.getText(),comboBox1.getValue()));
+
+
 
             }
             else if (comboBox1.getValue().equals("Orco")) {
@@ -122,6 +128,9 @@ public class HelloController implements Initializable {
                 bestas.add(orco);
                 listViewbesta.getItems().add(orco);
                 System.out.println("Bestas: "+bestas);
+
+
+
             }
 
         });
@@ -156,11 +165,7 @@ public class HelloController implements Initializable {
             listViewheroi.getItems().add(heroi.get(i).getNome());
         }
 
-
-
         listViewbesta.getItems().addAll(bestas);
-
-
     }
 
     @FXML
@@ -169,33 +174,8 @@ public class HelloController implements Initializable {
         System.out.println("Hai selezionato: " + selected);
     }
 
-    private void insercaHeroiBesta(String nome, int puntiVita, int resistenzaArmatura, String nomePersonagem) {
-        Personagem personagem;
-        switch (nomePersonagem) {
-            case "Troll":
-                personagem = new Troll(nome, puntiVita, resistenzaArmatura);
-                break;
-            case "Orco":
-                personagem = new Orco(nome, puntiVita, resistenzaArmatura);
-                break;
-            case "Homem":
-                personagem = new Orco(nome, puntiVita, resistenzaArmatura);
-                break;
-            case "Elfo":
-                personagem = new Orco(nome, puntiVita, resistenzaArmatura);
-                break;
-            case "Hobbit":
-                personagem = new Orco(nome, puntiVita, resistenzaArmatura);
-                break;
-            default:
-                throw new IllegalArgumentException("Tipo di personaggio non valido: " + nomePersonagem);
-        }
-        bestas.add(personagem);
-        listViewbesta.getItems().add(personagem);
+
 
     }
 
-
-
-}
 
