@@ -17,7 +17,7 @@ public class Battalha {
         this.bestas = bestas;
     }
 
-    public String inizia() {
+    public String comecar() {
         StringBuilder resultouBatalha = new StringBuilder();
 
         while (!heroi.isEmpty() && !bestas.isEmpty()) {
@@ -26,52 +26,47 @@ public class Battalha {
             resultouBatalha.append(turnodeCombate());
         }
         if (heroi.isEmpty()) {
-            resultouBatalha.append("Le Bestie hanno vinto!\n");
+            resultouBatalha.append("Os Bestas venceram!!\n");
         } else {
-            resultouBatalha.append("Gli Eroi hanno vinto!\n");
+            resultouBatalha.append("Os Heróis venceram!!\n");
         }
         return resultouBatalha.toString();
     }
 
     private String turnodeCombate() {
-        Iterator<Personagem> heroiIterator = heroi.iterator();//creato un iteratore per gli eroi
-        Iterator<Personagem> bestasIterator = bestas.iterator();//creato un iteratore per le bestie
+        Iterator<Personagem> heroiIterator = heroi.iterator();
+        Iterator<Personagem> bestasIterator = bestas.iterator();
 
         StringBuilder resultouBatalha = new StringBuilder();
 
-        while (heroiIterator.hasNext() && bestasIterator.hasNext()) {// Controlla se ci sono altri elementi
-            Personagem hero = heroiIterator.next();// Ottiene l'elemento successivo
-            Personagem beast = bestasIterator.next();// Ottiene l'elemento successivo
+        while (heroiIterator.hasNext() && bestasIterator.hasNext()) {
+            Personagem hero = heroiIterator.next();
+            Personagem beast = bestasIterator.next();
 
             if (hero instanceof Elfo && beast instanceof Orco) {
                 int ataqueHeroielfo = hero.attacco();
                 ataqueHeroielfo += 10;
-                //resultouBatalha.append("attacco Elfo to Orco: "+ataqueHeroielfo+"\n");
                 resultouBatalha.append(imprimirLuta(hero, beast, ataqueHeroielfo));
-                resultouBatalha.append(calcolaDanno(hero, beast, ataqueHeroielfo));//calcolo del danno dell'hero alla beast
+                resultouBatalha.append(calcolaDanno(hero, beast, ataqueHeroielfo));
             }
             else if(hero instanceof Hobbit && beast instanceof Troll) {
                 int ataqueHeroihobbit = hero.attacco();
-                ataqueHeroihobbit -= 5;  // Penalità per Hobbit contro Troll
-                //resultouBatalha.append("attaccoHobbit contro Troll: "+ataqueHeroihobbit+"\n");
+                ataqueHeroihobbit -= 5;
                 resultouBatalha.append(imprimirLuta(hero, beast, ataqueHeroihobbit));
-                resultouBatalha.append(calcolaDanno(hero, beast, ataqueHeroihobbit));//calcolo del danno dell'hero alla beast
+                resultouBatalha.append(calcolaDanno(hero, beast, ataqueHeroihobbit));
             }
-
             else {
                 int ataqueHeroihomem = hero.attacco();
-                //resultouBatalha.append("ataqueHeroihomem: "+ataqueHeroihomem+"\n");
                 resultouBatalha.append(imprimirLuta(hero, beast, ataqueHeroihomem));
                 resultouBatalha.append(calcolaDanno(hero, beast, ataqueHeroihomem));
             }
 
-            if((beast.isAlive())){//se la beast è ancora viva
+            if((beast.isAlive())){
                 if (beast instanceof Orco) {
                     ((Orco) beast).reduzirarmadura(hero);
                 }
                 int ataqueBesta = beast.attacco();
-                //resultouBatalha.append("ataqueBesta: "+ataqueBesta+"\n");
-                resultouBatalha.append(imprimirLuta(hero, beast, ataqueBesta));
+                resultouBatalha.append(imprimirLuta(beast, hero, ataqueBesta));
                 resultouBatalha.append(calcolaDanno(beast, hero, ataqueBesta));
             }
 
