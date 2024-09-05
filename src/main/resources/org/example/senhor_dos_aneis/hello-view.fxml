@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2000.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.senhor_dos_aneis.HelloController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4d2ee" height="857.0" stroke="BLACK" strokeMiterLimit="100.0" strokeType="INSIDE" width="600.0" />
+      <VBox layoutX="14.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="255.0">
+         <opaqueInsets>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </opaqueInsets>
+         <children>
+            <Label text="Heroes">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" layoutX="337.0" layoutY="50.0" prefHeight="200.0" prefWidth="255.0">
+         <children>
+            <Label text="Bestas">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="14.0" layoutX="203.0" layoutY="14.0" text="Batalha pela Terra Média" underline="true">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutX="337.0" layoutY="67.0" prefHeight="250.0" prefWidth="255.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8fafc" height="248.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
+            <Label layoutX="14.0" layoutY="14.0" text="Nome:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="62.0" text="Tipo:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="115.0" text="Vida">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="160.0" text="Armadura:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomebesta" layoutX="89.0" layoutY="11.0" />
+            <TextField fx:id="puntosVidabesta" layoutX="86.0" layoutY="111.0" />
+            <TextField fx:id="resistênciaarmadurabesta" layoutX="89.0" layoutY="156.0" />
+            <ComboBox fx:id="comboBox1" layoutX="90.0" layoutY="59.0" prefWidth="150.0" />
+            <Button fx:id="buttonbestas" layoutX="92.0" layoutY="202.0" mnemonicParsing="false" text="Adicionar" />
+         </children>
+      </Pane>
+      <Pane layoutX="6.0" layoutY="66.0" prefHeight="250.0" prefWidth="255.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8fafc" height="248.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
+            <Label layoutX="14.0" layoutY="14.0" text="Nome:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="62.0" text="Tipo:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="115.0" text="Vida">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="160.0" text="Armadura:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomeheroi" layoutX="89.0" layoutY="11.0" />
+            <TextField fx:id="puntosVidaheroi" layoutX="89.0" layoutY="111.0" />
+            <TextField fx:id="resistênciaarmaduraheroi" layoutX="89.0" layoutY="156.0" />
+            <ComboBox fx:id="comboBox" layoutX="90.0" layoutY="59.0" prefWidth="150.0" />
+            <Button fx:id="buttonheroi" layoutX="90.0" layoutY="206.0" mnemonicParsing="false" text="Adicionar" />
+         </children>
+      </Pane>
+      <Pane layoutX="7.0" layoutY="346.0" prefHeight="490.0" prefWidth="587.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8fafc" height="481.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="587.0" />
+            <Label layoutX="7.0" layoutY="16.0" text="Heroes">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="537.0" layoutY="16.0" text="Bestas">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listViewheroi" layoutX="14.0" layoutY="33.0" prefHeight="200.0" prefWidth="255.0" />
+            <ListView fx:id="listViewbesta" layoutX="332.0" layoutY="33.0" prefHeight="200.0" prefWidth="241.0" />
+            <Button layoutX="14.0" layoutY="256.0" mnemonicParsing="false" text="Aumentar" />
+            <Button layoutX="115.0" layoutY="256.0" mnemonicParsing="false" text="Baixo" />
+            <Button layoutX="194.0" layoutY="256.0" mnemonicParsing="false" text="Eliminar" />
+            <Button layoutX="331.0" layoutY="256.0" mnemonicParsing="false" text="Aumentar" />
+            <Button layoutX="432.0" layoutY="256.0" mnemonicParsing="false" text="Baixo" />
+            <Button layoutX="511.0" layoutY="256.0" mnemonicParsing="false" text="Eliminar" />
+            <Button fx:id="buttonluta" layoutX="263.0" layoutY="303.0" mnemonicParsing="false" text="Luta" />
+            <ListView fx:id="listViewluta" layoutX="14.0" layoutY="344.0" prefHeight="146.0" prefWidth="560.0" />
+         </children>
+      </Pane>
+      <Label layoutX="14.0" layoutY="336.0" text="Luta">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
