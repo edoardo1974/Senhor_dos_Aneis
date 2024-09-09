@@ -2,14 +2,13 @@ package com.tokio.model;
 
 public class Hobbit extends Heroi{
 
-    public Hobbit(String nome, int puntiVita, int resistenzaArmatura) {
-        super(nome, puntiVita, resistenzaArmatura);
+    public Hobbit(String nome, int puntosVida, int resistênciaarmadura) {
+        super(nome, puntosVida, resistênciaarmadura);
     }
 
     @Override
-    public int attacco() {
-        int potenzaAttacco = super.attacco();
-        // Penalità contro Troll
-        return potenzaAttacco - 5;
+    public int ataque() {// 5 pontos menos de ataque
+        int poderdeAtaque = super.ataque();
+        return poderdeAtaque - 5;
     }
 }

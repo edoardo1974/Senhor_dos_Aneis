@@ -115,8 +115,8 @@
             </Label>
             <ListView fx:id="listViewheroi" layoutX="14.0" layoutY="33.0" prefHeight="200.0" prefWidth="255.0" />
             <ListView fx:id="listViewbesta" layoutX="332.0" layoutY="33.0" prefHeight="200.0" prefWidth="241.0" />
-            <Button fx:id="buttonluta" layoutX="263.0" layoutY="303.0" mnemonicParsing="false" text="Luta" />
-            <ListView fx:id="listViewluta" layoutX="14.0" layoutY="344.0" prefHeight="146.0" prefWidth="560.0" />
+            <Button fx:id="buttonluta" layoutX="267.0" layoutY="257.0" mnemonicParsing="false" text="Luta" />
+            <ListView fx:id="listViewluta" layoutX="14.0" layoutY="300.0" prefHeight="190.0" prefWidth="560.0" />
          </children>
       </Pane>
       <Label layoutX="14.0" layoutY="336.0" text="Luta">

@@ -2,21 +2,9 @@ package org.example.senhor_dos_aneis;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-
-
 import java.io.IOException;
-
-
-
 
 public class HelloApplication extends Application {
     @Override
@@ -30,14 +18,9 @@ public class HelloApplication extends Application {
     }
 
 
-
     public static void main(String[] args) {
 
         launch();
-
-
-
-
     }
 
 

@@ -15,17 +15,13 @@ public abstract class Personagem {
         return puntosVida > 0;
     }
 
-    public abstract int attacco();
+    public abstract int ataque();
 
-    public void subisciDanno(int danno) {
+    public void sofrerdano(int danno) {
         puntosVida -= danno;
-        if (puntosVida < 0) puntosVida = 0;  // La vita non può andare sotto zero
+        if (puntosVida < 0) puntosVida = 0;  // A vida não pode ficar abaixo de zero
     }
-
-    public int getResistenzaArmatura() {
-        return resistênciaarmadura;
-    }
-
+    
     @Override
     public String toString() {
         return

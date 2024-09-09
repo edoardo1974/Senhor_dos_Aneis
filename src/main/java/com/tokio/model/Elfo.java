@@ -2,15 +2,13 @@ package com.tokio.model;
 
 public class Elfo extends Heroi{
 
-    public Elfo(String nome, int puntiVita, int resistenzaArmatura) {
-        super(nome, puntiVita, resistenzaArmatura);
+    public Elfo(String nome, int puntosVida, int resistênciaarmadura) {
+        super(nome, puntosVida, resistênciaarmadura);
     }
 
     @Override
-    public int attacco() {
-        int potenzaAttacco = super.attacco();
-        // Bonus contro Orchi
-        return potenzaAttacco + 10;
+    public int ataque() {
+        int poderdeAtaque = super.ataque();
+        return poderdeAtaque + 10;
     }
-
 }

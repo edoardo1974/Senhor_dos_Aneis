@@ -1,10 +1,7 @@
 package com.tokio.service;
-
 import com.tokio.model.*;
-
 import java.util.Iterator;
 import java.util.List;
-
 
 public class Battalha {
 
@@ -17,7 +14,7 @@ public class Battalha {
         this.bestas = bestas;
     }
 
-    public String comecar() {
+    public String comecar() {//Ciclo que inicia a batalha
         StringBuilder resultouBatalha = new StringBuilder();
 
         while (!heroi.isEmpty() && !bestas.isEmpty()) {
@@ -33,7 +30,7 @@ public class Battalha {
         return resultouBatalha.toString();
     }
 
-    private String turnodeCombate() {
+    private String turnodeCombate() {//Turno de combate quem decide que guerreiros enfrentar
         Iterator<Personagem> heroiIterator = heroi.iterator();
         Iterator<Personagem> bestasIterator = bestas.iterator();
 
@@ -44,63 +41,63 @@ public class Battalha {
             Personagem beast = bestasIterator.next();
 
             if (hero instanceof Elfo && beast instanceof Orco) {
-                int ataqueHeroielfo = hero.attacco();
+                int ataqueHeroielfo = hero.ataque();
                 ataqueHeroielfo += 10;
                 resultouBatalha.append(imprimirLuta(hero, beast, ataqueHeroielfo));
-                resultouBatalha.append(calcolaDanno(hero, beast, ataqueHeroielfo));
+                resultouBatalha.append(calcularDano(hero, beast, ataqueHeroielfo));
             }
             else if(hero instanceof Hobbit && beast instanceof Troll) {
-                int ataqueHeroihobbit = hero.attacco();
+                int ataqueHeroihobbit = hero.ataque();
                 ataqueHeroihobbit -= 5;
                 resultouBatalha.append(imprimirLuta(hero, beast, ataqueHeroihobbit));
-                resultouBatalha.append(calcolaDanno(hero, beast, ataqueHeroihobbit));
+                resultouBatalha.append(calcularDano(hero, beast, ataqueHeroihobbit));
             }
             else {
-                int ataqueHeroihomem = hero.attacco();
+                int ataqueHeroihomem = hero.ataque();
                 resultouBatalha.append(imprimirLuta(hero, beast, ataqueHeroihomem));
-                resultouBatalha.append(calcolaDanno(hero, beast, ataqueHeroihomem));
+                resultouBatalha.append(calcularDano(hero, beast, ataqueHeroihomem));
             }
 
             if((beast.isAlive())){
                 if (beast instanceof Orco) {
                     ((Orco) beast).reduzirarmadura(hero);
                 }
-                int ataqueBesta = beast.attacco();
+                int ataqueBesta = beast.ataque();
                 resultouBatalha.append(imprimirLuta(beast, hero, ataqueBesta));
-                resultouBatalha.append(calcolaDanno(beast, hero, ataqueBesta));
+                resultouBatalha.append(calcularDano(beast, hero, ataqueBesta));
             }
 
-            if (!hero.isAlive()) heroiIterator.remove();
+            if (!hero.isAlive()) heroiIterator.remove();//Se o herói morrer, ele é removido da lista
             if (!beast.isAlive()) bestasIterator.remove();
         }
         return resultouBatalha.toString();
     }
 
 
-    private String calcolaDanno(Personagem attaccante, Personagem difensore, int potenzaAttacco) {
+
+    private String calcularDano(Personagem atacante, Personagem defensor, int poderdeataque) {//Calcula o dano causado pelo ataque
         StringBuilder resultouBatalha = new StringBuilder();
-        if (potenzaAttacco > difensore.getResistenzaArmatura()) {//se la potenza dell'attacco è maggiore della resistenza dell'armatura del difensore
-            int danno = potenzaAttacco - difensore.getResistenzaArmatura();
-            difensore.subisciDanno(danno);
-            resultouBatalha.append(attaccante.getNome()+" saca " + potenzaAttacco +" e tira "+ danno +" de vida a "+ difensore.getNome()+"\n");
+        if (poderdeataque > defensor.getResistênciaarmadura()) {//se o poder do ataque for superior à resistência da armadura do defensor.
+            int danno = poderdeataque - defensor.getResistênciaarmadura();
+            defensor.sofrerdano(danno);
+            resultouBatalha.append(atacante.getNome()+" saca " + poderdeataque +" e tira "+ danno +" de vida a "+ defensor.getNome()+"\n");
         }
         else {
-            resultouBatalha.append(attaccante.getNome()+" saca " + potenzaAttacco +" e non tira vida a "+ difensore.getNome()+"\n");
+            resultouBatalha.append(atacante.getNome()+" saca " + poderdeataque +" e non tira vida a "+ defensor.getNome()+"\n");
         }
         return resultouBatalha.toString();
     }
 
 
-    private String imprimirLuta(Personagem personagem1, Personagem personagem2, int ataque) {
+    private String imprimirLuta(Personagem personagem1, Personagem personagem2, int ataque) {//Imprime a luta
         StringBuilder resultadoBatalha = new StringBuilder();
         resultadoBatalha.append("Luta entre: ").append(personagem1.getNome())
                 .append(" ( Vida= ").append(personagem1.getPuntosVida())
-                .append(" Armadura= ").append(personagem1.getResistenzaArmatura())
+                .append(" Armadura= ").append(personagem1.getResistênciaarmadura())
                 .append(") e ").append(personagem2.getNome())
                 .append(" ( Vida= ").append(personagem2.getPuntosVida())
-                .append(" Armadura= ").append(personagem2.getResistenzaArmatura())
+                .append(" Armadura= ").append(personagem2.getResistênciaarmadura())
                 .append(")\n");
-        //resultadoBatalha.append("Ataque: ").append(ataque).append("\n");
         return resultadoBatalha.toString();
     }
 }
